@@ -9,7 +9,7 @@ The MERN stack is:
 `R` React - front end
 `N` Node JS - runtime environment
 
-This application will also utilise Redux
+This application also utilises Redux & Mongoose (6)
 
 Installs:
 Server - Express, Mongoose, Nodemon, Body-Parser, CORS
