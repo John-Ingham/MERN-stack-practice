@@ -1,3 +1,5 @@
+//Do not git add until private info hidden
+
 import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
@@ -17,8 +19,9 @@ app.use(cors())
 //https;//mongodb.com/cloud/atlas
 
 const CONNECTION_URL =
-  'mongodb+srv://john:Flibble0@cluster0.kadki.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' //need to change MyFirstDatabase <dbname>?
+  'mongodb+srv://john:<password>@cluster0.kadki.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' //need to change MyFirstDatabase <dbname>?
 // will move this later
+// Password changed - will retype once moved
 
 const PORT = process.env.PORT || 5000
 
