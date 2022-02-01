@@ -1,8 +1,5 @@
 import { combineReducers } from 'redux'
-import { reducer } from './posts' //?
 
-import posts from './posts'
+import posts from './posts.mjs'
 
-export default combineReducers({
-  posts,
-})
+export default combineReducers({ posts })

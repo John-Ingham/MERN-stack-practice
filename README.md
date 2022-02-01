@@ -18,11 +18,11 @@ This application also utilises Redux & Mongoose (6)
 
 ## Installs:
 
-Server - Express, Mongoose, Nodemon, Body-Parser, CORS
+Server - Express, Mongoose, Nodemon, Body-Parser, CORS, dotenv
 Client - React-App, Redux, Redux-thunk, moment, react-file-base64, Axios, Material-UI, React-redux
 
 ## Run instructions
 
-To run this application locally please fork and clone it to your local device and run using `npm start` for both server and client. You will need two terminal instances open as the client will run on localhost:3000 and the server will run on localhost:5000.
+To run this application locally please fork and clone it to your local device and run using`npm i` then `npm start` for both server and client. You will need two terminal instances open as the client will run on localhost:3000 and the server will run on localhost:5000.
 
 ## Hosted

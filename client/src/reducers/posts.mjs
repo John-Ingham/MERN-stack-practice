@@ -1,8 +1,14 @@
 //reducers
 //reducer is a function
 
+const CREATE = 'CREATE'
+const FETCH_ALL = 'FETCH_ALL'
+const DELETE = 'DELETE'
+const LIKE = 'LIKE'
+const UPDATE = 'UPDATE'
+
 const reduc3r = (state, action) => {
-  if (action.type === 'CREATE') {
+  if (action.type === CREATE) {
     //do stuff
     // return ...
     //usually change the state based on the action
@@ -12,15 +18,15 @@ const reduc3r = (state, action) => {
 }
 export default (posts = [], action) => {
   switch (action.type) {
-    case 'DELETE':
+    case DELETE:
       return posts.filter((post) => post._id !== action.payload)
-    case 'FETCH_ALL':
+    case FETCH_ALL:
       return action.payload // action.payload is what is returned
-    case 'CREATE':
+    case CREATE:
       //console.log('<<<<In create function reducer')
       return [...posts, action.payload]
-    case 'UPDATE':
-    case 'LIKE':
+    case UPDATE:
+    case LIKE:
       return posts.map((post) =>
         post._id === action.payload._id ? action.payload : post,
       )
@@ -43,4 +49,4 @@ const reduc33r = (state = [], action) => {
       return state
   }
 }
-// module.exports = { reducer }
+// module.exports = posts

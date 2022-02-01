@@ -4,10 +4,11 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import cors from 'cors'
-
+import dotenv from 'dotenv'
 import postRoutes from './routes/posts.js'
 
 const app = express()
+dotenv.config()
 
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
@@ -17,16 +18,14 @@ app.use('/posts', postRoutes)
 
 //https;//mongodb.com/cloud/atlas
 
-const CONNECTION_URL =
-  'mongodb+srv://john:<<PASSWORD>>@cluster0.kadki.mongodb.net/MERN-stack-practice?retryWrites=true&w=majority' //need to change MyFirstDatabase <dbname>?
-// will move this later
+// CONNECTION_URL moved to .env file
 // Password changed - will retype once moved
 
 const PORT = process.env.PORT || 5000
 
 mongoose
   .connect(
-    CONNECTION_URL,
+    process.env.CONNECTION_URL,
     // useNewUrlParser: true,   <-- Deprecated, Mongoose 6 always assumes that these are true
     // useUnifiedTopolgy: true,
   )
