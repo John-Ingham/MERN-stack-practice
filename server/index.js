@@ -16,6 +16,10 @@ app.use(cors()) // NB This must always be above any routing //
 
 app.use('/posts', postRoutes)
 
+app.get('/', (req, res) => {
+  res.send('Hello! - welcome to memories API')
+})
+
 //https;//mongodb.com/cloud/atlas
 
 // CONNECTION_URL moved to .env file
