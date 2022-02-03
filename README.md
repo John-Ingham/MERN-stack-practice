@@ -18,8 +18,13 @@ This application also utilises Redux & Mongoose (6)
 
 ## Installs:
 
+Project installs:
 Server - Express, Mongoose, Nodemon, Body-Parser, CORS, dotenv
 Client - React-App, Redux, Redux-thunk, moment, react-file-base64, Axios, Material-UI, React-redux
+
+Login installs:
+Server - bcryptjs and jsonwebtoken
+Client - jwt-decode and react-google-login react-router-dom
 
 ## Run instructions
 
