@@ -16,8 +16,7 @@ const Auth = () => {
   const classes = useStyles()
 
   const [showPassword, setShowPassword] = useState(false)
-
-  const isSignup = true
+  const [isSignup, setIsSignup] = useState(false)
 
   const handleShowPassword = () =>
     setShowPassword((prevShowPassword) => !prevShowPassword)
@@ -25,6 +24,11 @@ const Auth = () => {
   const handleSubmit = () => {}
 
   const handleChange = () => {}
+
+  const switchMode = () => {
+    setIsSignup((prevIsSignup) => !prevIsSignup) // resets between on and off like a switch
+    handleShowPassword(false) //resets showPassword
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -84,6 +88,15 @@ const Auth = () => {
           >
             {isSignup ? 'Sign Up' : 'Sign In'}
           </Button>
+          <Grid container justify="flex-end">
+            <Grid item>
+              <Button onClick={switchMode}>
+                {isSignup
+                  ? 'Already have an account? - Sign In'
+                  : "Don't have an account yet? - Sign Up"}
+              </Button>
+            </Grid>
+          </Grid>
         </form>
       </Paper>
     </Container>
