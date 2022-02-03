@@ -26,3 +26,7 @@ Client - React-App, Redux, Redux-thunk, moment, react-file-base64, Axios, Materi
 To run this application locally please fork and clone it to your local device and run using`npm i` then `npm start` for both server and client. You will need two terminal instances open as the client will run on localhost:3000 and the server will run on localhost:5000.
 
 ## Hosted
+
+The server back-end is hosted at Heroku at [URL] https://mern-stack-memories-practice.herokuapp.com/posts
+
+Front-end application is hosted at [URL] https://mern-stack-memories-app.netlify.app/
