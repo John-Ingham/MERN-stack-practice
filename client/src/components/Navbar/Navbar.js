@@ -10,7 +10,7 @@ const Navbar = () => {
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
 
-  console.log(user)
+  // console.log(user)
 
   useEffect(() => {
     const token = user?.token
@@ -18,7 +18,7 @@ const Navbar = () => {
     // JWT ...
 
     setUser(JSON.parse(localStorage.getItem('profile')))
-  }, [])
+  }, [user?.token])
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">

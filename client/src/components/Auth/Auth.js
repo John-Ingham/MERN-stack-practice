@@ -6,7 +6,6 @@ import {
   Grid,
   Typography,
   Container,
-  TextField,
 } from '@material-ui/core'
 import useStyles from './styles'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
@@ -15,6 +14,15 @@ import { GoogleLogin } from 'react-google-login'
 import Icon from './Icon'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { signin, signup } from '../../actions/auth'
+
+const initialState = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
+}
 
 const Auth = () => {
   let navigate = useNavigate()
@@ -22,18 +30,30 @@ const Auth = () => {
 
   const [showPassword, setShowPassword] = useState(false)
   const [isSignup, setIsSignup] = useState(false)
+  const [formData, setFormData] = useState(initialState)
   const dispatch = useDispatch()
 
   const handleShowPassword = () =>
     setShowPassword((prevShowPassword) => !prevShowPassword)
 
-  const handleSubmit = () => {}
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // console.log(formData)
+    if (isSignup) {
+      dispatch(signup(formData, navigate))
+    } else {
+      dispatch(signin(formData, navigate))
+      // redux action
+    }
+  }
 
-  const handleChange = () => {}
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
 
   const switchMode = () => {
     setIsSignup((prevIsSignup) => !prevIsSignup) // resets between on and off like a switch
-    handleShowPassword(false) //resets showPassword
+    setShowPassword(false) //resets showPassword
   }
 
   const googleSuccess = async (res) => {
@@ -100,6 +120,7 @@ const Auth = () => {
                 name="confirmPassword"
                 label=" Repeat Password"
                 handleChange={handleChange}
+                type={showPassword ? 'text' : 'password'}
               />
             )}
           </Grid>
