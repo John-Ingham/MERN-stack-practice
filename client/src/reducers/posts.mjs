@@ -17,6 +17,9 @@ const reduc3r = (state, action) => {
   // NB spelt it reduc3r to prevent declaring same variable twice
 }
 export default (posts = [], action) => {
+  //console.log(posts)
+  //console.log(posts[0]?._id)
+  //console.log(action.payload)
   switch (action.type) {
     case DELETE:
       return posts.filter((post) => post._id !== action.payload)
@@ -28,8 +31,9 @@ export default (posts = [], action) => {
     case UPDATE:
     case LIKE:
       return posts.map((post) =>
-        post._id === action.payload._id ? action.payload : post,
+        post?._id === action.payload._id ? action.payload : post,
       )
+
     // ternerary: if post id and payload id match then update with payload, else return post.
 
     default:

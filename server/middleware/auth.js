@@ -6,8 +6,9 @@ import jwt from 'jsonwebtoken'
 // User wants to like a post
 // click the `like` button => auth middleware (next) => like controller ...
 
-const auth = (req, res, next) => {
+const auth = async (req, res, next) => {
   try {
+    //console.log(req.headers)
     const token = req.headers.authorization.split(' ')[1]
     //get auth array, split it, token is at index 1 after split
 

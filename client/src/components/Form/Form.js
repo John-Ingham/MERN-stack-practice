@@ -16,12 +16,13 @@ const Form = ({ setCurrentId, currentId }) => {
   // use selector grab state from store, ternerary,if we have currentId find post with id matching current id
 
   const [postData, setPostData] = useState({
-    creator: '',
+    // creator: '',
     title: '',
     message: '',
     tags: '',
     selectedFile: '', // Matches schema from before
   })
+  const user = JSON.parse(localStorage.getItem('profile'))
 
   useEffect(() => {
     if (post) setPostData(post)
@@ -30,18 +31,30 @@ const Form = ({ setCurrentId, currentId }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    if (currentId) {
-      dispatch(updatePost(currentId, postData))
+    if (currentId === null) {
+      // was if (currentId)
+      dispatch(createPost({ ...postData, name: user?.result?.name }))
     } else {
-      dispatch(createPost(postData))
+      dispatch(updatePost(currentId, { ...postData, name: user?.result?.name }))
     }
     clear()
+  }
+
+  if (!user?.result?.name) {
+    return (
+      <Paper className={classes.paper}>
+        <Typography variant="h6" align="center">
+          Please login, or sign-up, to create your own memories and like others
+          memories
+        </Typography>
+      </Paper>
+    )
   }
 
   const clear = () => {
     setCurrentId(null) // Resets to not looking at a post
     setPostData({
-      creator: '',
+      // creator: '',
       title: '',
       message: '',
       tags: '',
@@ -61,7 +74,7 @@ const Form = ({ setCurrentId, currentId }) => {
           {' '}
           {currentId ? 'Editing' : 'Creating'} a memory
         </Typography>
-        <TextField
+        {/* <TextField
           name="creator"
           variant="outlined"
           label="Creator"
@@ -70,7 +83,7 @@ const Form = ({ setCurrentId, currentId }) => {
           onChange={(e) =>
             setPostData({ ...postData, creator: e.target.value })
           }
-        />
+        /> */}
         <TextField
           name="title"
           variant="outlined"

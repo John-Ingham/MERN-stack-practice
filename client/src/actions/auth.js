@@ -2,6 +2,7 @@ import { AUTH } from '../constants/actionTypes'
 import * as api from '../api/index.js'
 
 export const signin = (formData, navigate) => async (dispatch) => {
+  //action creator
   try {
     //login the user ...
     const { data } = await api.signIn(formData)

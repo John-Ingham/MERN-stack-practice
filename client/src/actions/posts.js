@@ -35,10 +35,10 @@ export const getPosts = () => async (dispatch) => {
 }
 
 export const createPost = (post) => async (dispatch) => {
-  console.log(post)
+  //console.log(post)
   try {
     const { data } = await api.makePost(post)
-    console.log(data, '<<>>DATA')
+    //console.log(data, '<<>>DATA')
     dispatch({ type: CREATE, payload: data })
   } catch (error) {
     console.log(error, 'createPost error')
@@ -67,8 +67,9 @@ export const deletePost = (id) => async (dispatch) => {
 export const likePost = (id) => async (dispatch) => {
   //// Works but with error
   try {
-    const data = await api.likePost(id)
-    console.log(data)
+    const { data } = await api.likePost(id)
+    //console.log(data, '<> In actions-posts')
+    //console.log(id)
 
     dispatch({ type: LIKE, payload: data })
   } catch (error) {

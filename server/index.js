@@ -10,10 +10,10 @@ import userRoutes from './routes/users.js'
 
 const app = express()
 dotenv.config()
+app.use(cors()) // NB This must always be above any routing //
 
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
-app.use(cors()) // NB This must always be above any routing //
 
 app.use('/posts', postRoutes)
 app.use('/user', userRoutes)
